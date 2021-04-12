@@ -17,7 +17,7 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
     env:
         DIDI_CITY: ${{ secrets.DIDI_CITY}}
-        DIDI_TOKEN: ${{ secrets.DIDI_TOKEN }}
+        DIDI: ${{ secrets.DIDI }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 10.x
