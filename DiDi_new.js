@@ -107,8 +107,8 @@ if ($.isRequest) {
 	$.done({});
 } else {
 	!(async () => {
-		$.Ticket = process.env.DiDi;
-		$.city = process.env.DiDi_city;
+		$.Ticket = "T97kR-Hf8A3m2ddxJV98J7ozWcBw0-cbAV8wK7X9rqEkzDlOxTAQgOG7_PUoms2OPS09d2AJS2MkEFXE3VHe6z99J0spYtNNEZZRJiynTFVVWEHZ3mbYsKGeYxdWUtY9TadnCKtRPDwiPFEgPFM-p_ZhbTTN4S68UpbCQZ38fP1-vxyU_glv12U9Im7XO4WFRffIzED4uJ-fF_8PAAD__w==";
+		$.city = 50;
 		$.now = new Date().getTime();
 		if (!$.Ticket || !$.city) {
 			throw new ERR.TokenError("❌ 未获取或填写 Token");
