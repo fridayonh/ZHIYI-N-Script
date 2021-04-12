@@ -1,5 +1,5 @@
 const cookieName = '去哪儿'
-const cookieKey = 'chavy_cookie_qunar'
+const cookieKey = process.env.qunar_cookiekey
 const chavy = init()
 const cookieVal = JSON.parse(chavy.getdata(cookieKey))
 
