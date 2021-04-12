@@ -1,0 +1,38 @@
+name: qunar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12,17 * * *'
+  watch:
+    types: [started]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        qunar_cookieKey: ${{ secrets.qunar_cookieKey}}
+        DIDI: ${{ secrets.DIDI }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          npm install
+          npm install got #tough-cookie
+      - name: ' 运行 【qunar】'
+        run: |
+          node qunar.js
+        env:
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+          BARK_SOUND: ${{ secrets.BARK_SOUND }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
